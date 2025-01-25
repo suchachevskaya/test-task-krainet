@@ -1,0 +1,62 @@
+<header class="header">
+    <h1 class="header__name">Меня зовут Александра Смит</h1>
+    <p class="header__profession">Я web-разработчик из города Москва</p>
+    <nav class="header__nav">
+        <ul>
+            <li><a href="#portfolio" class="header__link">Портфолио</a></li>
+            <li><a href="#about" class="header__link">Про меня</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="main">
+    <section id="experience" class="experience">
+        <h2 class="experience__title">Опыт</h2>
+        <p class="experience__subtitle">Чем я буду полезна</p>
+        <article class="experience__item">
+            <h3 class="experience__item-title">Диплом магистра | Москва (2014-2020)</h3>
+            <p class="experience__item-institution">МГТУ им. Н. Э. Баумана</p>
+            <p class="experience__item-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </article>
+        <article class="experience__item">
+            <h3 class="experience__item-title">Курсы по Web-разработке</h3>
+            <p class="experience__item-institution">Udemy</p>
+            <p class="experience__item-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </article>
+        <h2 class="experience__education">Образование</h2>
+        <article class="experience__item">
+            <h3 class="experience__item-title">EPAM | Москва (2018-2019)</h3>
+            <p class="experience__item-position">Front-End Developer</p>
+            <p class="experience__item-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </article>
+        <article class="experience__item">
+            <h3 class="experience__item-title">Squad Team | Москва (2018)</h3>
+            <p class="experience__item-position">UI/UX Designer</p>
+            <p class="experience__item-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </article>
+        <h2 class="experience__work">Опыт работы</h2>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2 class="contact__title">Отправить сообщение</h2>
+        <p class="contact__subtitle">Любым удобным для вас способом:</p>
+        <h3 class="contact__heading">Контакты</h3>
+        <p class="contact__subheading">Свяжитесь со мной</p>
+        <p class="contact__instruction">Или оставьте ваши данные и я сама вам напишу:</p>
+        <form class="contact__form">
+            <div class="contact__form-group">
+                <label for="name" class="contact__form-label">Ваше имя</label>
+                <input type="text" id="name" name="name" class="contact__form-input">
+            </div>
+            <div class="contact__form-group">
+                <label for="message" class="contact__form-label">Ваше сообщение</label>
+                <textarea id="message" name="message" class="contact__form-input"></textarea>
+            </div>
+            <div class="contact__form-group">
+                <label for="email" class="contact__form-label">Ваша почта</label>
+                <input type="email" id="email" name="email" class="contact__form-input">
+            </div>
+            <button type="submit" class="contact__form-submit">Отправить</button>
+        </form>
+    </section>
+</main>
