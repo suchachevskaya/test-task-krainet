@@ -18,6 +18,10 @@ body {
     height: 800px;
     width: 100%;
   }
+  .imgBg a img {
+    width: 20px;
+    height: 20px;
+  }
   .header {
     display: flex;
     align-items: center;
@@ -31,7 +35,7 @@ body {
     transform: rotate(-90deg);
   }
   .main {
-    max-width: 1140px;
+    width: 1140px;
     border: 1px solid #000;
   }
   .experience__sections {
@@ -44,6 +48,17 @@ body {
     width: 400px;
     height: 600px;
     margin: 72px;
+  }
+  .error {
+    display: none;
+    color: red;
+    font-size: 12px;
+  }
+  .contact__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 200px;
   }
 }
 /* Стили для планшетов */
