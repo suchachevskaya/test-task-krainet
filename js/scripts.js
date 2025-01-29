@@ -27,29 +27,45 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("emailError").style.display = "block";
         isValid = false;
       }
-    //   if (isValid) {
-    //     const formData = {
-    //       name: name,
-    //       message: message,
-    //       email: email,
-    //     };
-    //     fetch("https://jsonplaceholder.typicode.com/posts", {
-    //       method: "POST",
-    //       headers: {
-    //         "Content-Type": "application/json",
-    //       },
-    //       body: JSON.stringify(formData),
-    //     })
-    //       .then((response) => response.json())
-    //       .then((data) => {
-    //         console.log("Success:", data);
-    //         alert("Какая же ты молодец");
-    //       })
+      if (isValid) {
+        const formData = {
+          name: name,
+          message: message,
+          email: email,
+        };
+        fetch("https://jsonplaceholder.typicode.com/posts", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            console.log("Success:", data);
+            alert("Какая же ты молодец");
+          })
 
-    //       .catch((error) => {
-    //         console.error("Error", error);
-    //         alert("Фууу");
-    //       });
-    //   }
+          .catch((error) => {
+            console.error("Error", error);
+            alert("Фууу");
+          });
+      }
     });
 });
+// События по клику
+function asideVisibility() {
+  let profile = document.querySelector(".profile");
+  let headerSocial = document.querySelector(".header__social");
+
+  if (profile.style.visibility === "hidden") {
+    profile.style.visibility = "visible";
+    profile.style.width = "15%"; 
+    headerSocial.style.visibility = "hidden";
+    headerSocial.style.width = "0";
+  } else {
+    profile.style.visibility = "hidden";
+    profile.style.width = "0";
+    headerSocial.style.visibility = "visible";
+    headerSocial.style.width = "15%";
+  }}

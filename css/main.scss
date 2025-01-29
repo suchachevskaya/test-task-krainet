@@ -6,6 +6,14 @@
   background: #ffa501;
   border-radius: 50%;
 }
+@mixin button {
+  height: 45px;
+  min-width: 135px;
+  max-width: 290px;
+  padding: 10px 25px 10px 25px;
+  margin: 0 50px 0 0;
+  background-color: #ffa501;
+  }
 body {
   margin: 0;
   padding: 0;
@@ -14,6 +22,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-wrap-style: pretty;
   h1 {
     font-size: 48px;
     font-weight: 700;
@@ -40,16 +49,18 @@ body {
     font-size: 12px;
     font-weight: 500;
   }
-  button {
-    height: 45px;
-    min-width: 135px;
-    max-width: 290px;
-    padding: 10px 25px 10px 25px;
-    margin: 0 50px 0 0;
-    background-color: #ffa501;
+  button{
+    background-color: transparent;
     border: none;
     text-decoration: none;
   }
+}
+.wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
 /* Стили для десктопов */
@@ -67,256 +78,296 @@ body {
       }
     }
   }
-  .header {
-    display: flex;
-    align-items: center;
-    width: 1920px;
+  .profile {
+    background: #ffa501;
     height: 800px;
-  }
-  .header__profession {
-    max-width: 532px;
-  }
-
-  .header__social {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    transform: rotate(-90deg);
-  }
-  .header__link {
-    font-size: 14px;
-  }
-  .header__link-transparent {
-    background-color: transparent;
-    border: none;
-    text-decoration: none;
-  }
-  .header__link-transparent:hover {
-    text-decoration: underline;
-    text-decoration-color: #0284c7;
-  }
-
-  .header__name-wrapper {
-    position: relative;
-    display: flex;
-    align-items: center;
-  }
-  .header__name {
-    position: relative;
-  }
-  .header__name-wrapper::before {
-    @include circle-style;
-  }
-  .experience__subtitle {
-    position: relative;
-    padding-bottom: 30px;
-  }
-
-  .experience__subtitle::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 60px;
-    height: 3px;
-    background-color: #ffa501;
-    transform: translateX(225%);
-  }
-
-  .main {
-    width: 1140px;
-    border: 1px solid #000;
-  }
-  .experience {
+    width: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
-  .experience__title {
-    position: relative;
-  }
-  .experience__title-wrapper {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .experience__title-wrapper::before {
-    @include circle-style;
+    color: #ffffff;
+    justify-content: space-around;
+    visibility: hidden;
   }
 
-  .experience__sections {
+  .hamburger {
+    width: 36px;
+    height: 21px;
+    margin: 20px 30px 0 0;
+  }
+  .hamburger__button {
+    width: 15%;
+    width: 15%;
     display: flex;
+    flex-direction: row-reverse;
   }
-  .experience__section-item {
-    position: relative;
-    height: 400px;
-    max-width: 425px;
+  .profile__icon {
+    display: flex;
+    flex-direction: row-reverse;
+    margin: 0 30px 0 0;
+    justify-content: space-between;
+    width: 100%;
   }
-  .experience__section-item::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    border-left: 1px solid #000000;
-    max-height: 343px;
-  }
-  .experience__sections .experience__section-item::after {
-    content: "";
-    position: absolute;
-    left: -4.5px;
-    top: 0;
+
+  .profile__title::before {
+    content: url("file:///C:/Users/magis/OneDrive/Desktop/%D0%BE%D1%81%D1%82%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B5/test/icons/Ellipse.png");
     width: 15px;
     height: 15px;
-    background: #ffa501;
-    border-radius: 50%;
+    margin: 10px;
   }
-  .experience__item {
-    position: relative;
-    padding: 0 0 0 20px;
-  }
+}
+.header {
+  display: flex;
+  align-items: center;
+  width: 1920px;
+  height: 800px;
+}
+.header__profession {
+  max-width: 532px;
+}
 
-  .experience__item::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    border-top: 1px solid #000000;
-    width: 42px;
-  }
+.header__social {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  writing-mode: sideways-lr;
+  min-height: 338px;
+  justify-content: space-around;
+  margin-top: 225px;
+  width: 15%;
+}
+.header__link {
+  font-size: 14px;
+}
+.header__link-color{
+  @include button;
+}
 
-  .experience__university-icon::after {
-    @include circle-style;
-    content: url("file:///C:/Users/magis/OneDrive/Desktop/%D0%BE%D1%81%D1%82%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B5/test/icons/University.png");
-    left: 30px;
-    top: -15px;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-  }
+.header__link-transparent:hover {
+  text-decoration: underline;
+  text-decoration-color: #0284c7;
+}
 
-  .experience__courses-icon::after {
-    @include circle-style;
-    content: url("file:///C:/Users/magis/OneDrive/Desktop/%D0%BE%D1%81%D1%82%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B5/test/icons/Courses.png");
-    left: 30px;
-    top: -15px;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-  }
+.header__name-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.header__name {
+  position: relative;
+}
+.header__name-wrapper::before {
+  @include circle-style;
+}
+.experience__subtitle {
+  position: relative;
+  padding-bottom: 30px;
+}
 
-  .experience__developer-icon::after {
-    @include circle-style;
-    content: url("file:///C:/Users/magis/OneDrive/Desktop/%D0%BE%D1%81%D1%82%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B5/test/icons/Developer.png");
-    left: 30px;
-    top: -15px;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-  }
-  .experience__designer-icon::after {
-    @include circle-style;
-    content: url("file:///C:/Users/magis/OneDrive/Desktop/%D0%BE%D1%81%D1%82%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B5/test/icons/designer.png");
-    left: 30px;
-    top: -15px;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-  }
-  .experience__item-position {
-    padding: 0 0 0 70px;
-  }
+.experience__subtitle::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background-color: #ffa501;
+  transform: translateX(225%);
+}
 
-  // контакты
+.main {
+  width: 70%;
+  border: 1px solid #000;
+}
+.experience {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.experience__title {
+  position: relative;
+}
+.experience__title-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.experience__title-wrapper::before {
+  @include circle-style;
+}
 
-  .contact__container {
-    display: flex;
-  }
-  .contact__image {
-    width: 400px;
-    height: 600px;
-    margin: 0 72px 72px 72px;
-  }
-  .contact__social {
-    img {
-      width: 30px;
-      height: 30px;
-    }
-  }
-  .contact__heading-wrapper{
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-  }
-  .contact__heading{
-    position: relative;
-  }
-  .contact__heading-wrapper::before{
-    @include circle-style;
-  
-  }
-  .contact__subheading{
-    margin: 0;
-  }
-
-  // форма
-  .contact__form-group {
-    position: relative;
-    margin:0 25px 25px 0;
-    textarea{
-      height: 190px;
-    }
-  }
-.contact__form-wrapper{
+.experience__sections {
   display: flex;
 }
-  .contact__form-input {
-    width: 100%;
-    padding: 10px;
-    box-sizing: border-box;
-    background: transparent;
-    height: 45px;
-    border: 1px solid #000000;
-   
-  }
-  
+.experience__section-item {
+  position: relative;
+  height: 400px;
+  max-width: 425px;
+}
+.experience__section-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  border-left: 1px solid #000000;
+  max-height: 343px;
+}
+.experience__sections .experience__section-item::after {
+  content: "";
+  position: absolute;
+  left: -4.5px;
+  top: 0;
+  width: 15px;
+  height: 15px;
+  background: #ffa501;
+  border-radius: 50%;
+}
+.experience__item {
+  position: relative;
+  padding: 0 0 0 20px;
+}
 
-  .contact__form-input:focus {
-    border-color: #0284c7;
-    outline: none;
-  }
+.experience__item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  border-top: 1px solid #000000;
+  width: 42px;
+}
 
-  .contact__form-label {
-    position: absolute;
-    top: -10px;
-    left: 10px;
-    background: white;
-    padding: 0 5px;
-    color: #6b7280;
-    transition: all 0.3s;
-  }
+.experience__university-icon::after {
+  @include circle-style;
+  content: url("file:///C:/Users/magis/OneDrive/Desktop/%D0%BE%D1%81%D1%82%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B5/test/icons/University.png");
+  left: 30px;
+  top: -15px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
 
-  .contact__form-input:focus + .contact__form-label,
-  .contact__form-input:not(:placeholder-shown) + .contact__form-label {
-    top: -20px;
-    font-size: 12px;
-    color: #0284c7;
-  }
+.experience__courses-icon::after {
+  @include circle-style;
+  content: url("file:///C:/Users/magis/OneDrive/Desktop/%D0%BE%D1%81%D1%82%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B5/test/icons/Courses.png");
+  left: 30px;
+  top: -15px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
 
-  .error {
-    display: none;
-    color: red;
-    font-size: 12px;
+.experience__developer-icon::after {
+  @include circle-style;
+  content: url("file:///C:/Users/magis/OneDrive/Desktop/%D0%BE%D1%81%D1%82%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B5/test/icons/Developer.png");
+  left: 30px;
+  top: -15px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+.experience__designer-icon::after {
+  @include circle-style;
+  content: url("file:///C:/Users/magis/OneDrive/Desktop/%D0%BE%D1%81%D1%82%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B5/test/icons/designer.png");
+  left: 30px;
+  top: -15px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+.experience__item-position {
+  padding: 0 0 0 70px;
+}
+
+// контакты
+
+.contact__container {
+  display: flex;
+}
+.contact__image {
+  width: 400px;
+  height: 600px;
+  margin: 0 72px 72px 72px;
+}
+.contact__social {
+  img {
+    width: 30px;
+    height: 30px;
   }
-  .contact__form {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    height: 200px;
+}
+.contact__heading-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.contact__heading {
+  position: relative;
+}
+.contact__heading-wrapper::before {
+  @include circle-style;
+}
+.contact__subheading {
+  margin: 0;
+}
+
+// форма
+.contact__form-group {
+  position: relative;
+  margin: 0 25px 25px 0;
+  textarea {
+    height: 190px;
   }
+}
+.contact__form-wrapper {
+  display: flex;
+}
+.contact__form-input {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  background: transparent;
+  height: 45px;
+  border: 1px solid #000000;
+}
+
+.contact__form-input:focus {
+  border-color: #0284c7;
+  outline: none;
+}
+
+.contact__form-label {
+  position: absolute;
+  top: -10px;
+  left: 10px;
+  background: white;
+  padding: 0 5px;
+  color: #6b7280;
+  transition: all 0.3s;
+}
+
+.contact__form-input:focus + .contact__form-label,
+.contact__form-input:not(:placeholder-shown) + .contact__form-label {
+  top: -20px;
+  font-size: 12px;
+  color: #0284c7;
+}
+.contact__form-submit{
+  @include button;
+}
+
+.error {
+  display: none;
+  color: red;
+  font-size: 12px;
+}
+.contact__form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 200px;
 }
 
 /* Стили для планшетов */
