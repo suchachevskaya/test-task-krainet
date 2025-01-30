@@ -1,9 +1,17 @@
+$primary-color: #ffa501;
+$secondary-color: #0284c7;
+$main-color: #ffffff;
+$text-color: #ffffff;
+$border-color: #000000;
+$profile-width-desktop: 15%;
+$profile-width-mobile: 80%;
+
 @mixin circle-style {
   content: "";
   position: absolute;
   width: 36px;
   height: 36px;
-  background: #ffa501;
+  background: $primary-color;
   border-radius: 50%;
 }
 @mixin button {
@@ -12,8 +20,20 @@
   max-width: 290px;
   padding: 10px 25px 10px 25px;
   margin: 0 50px 0 0;
-  background-color: #ffa501;
-  }
+  background-color: $primary-color;
+}
+
+@mixin flex-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+button {
+  background-color: transparent;
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+}
 body {
   margin: 0;
   padding: 0;
@@ -22,7 +42,9 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-wrap-style: pretty;
+  background-color: $main-color;
+  overflow-x: hidden;
+
   h1 {
     font-size: 48px;
     font-weight: 700;
@@ -49,98 +71,118 @@ body {
     font-size: 12px;
     font-weight: 500;
   }
-  button{
-    background-color: transparent;
-    border: none;
+  a {
+    color: #000;
     text-decoration: none;
+    cursor: pointer;
   }
 }
 .wrapper {
   width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  @include flex-container;
   align-items: flex-start;
+  justify-content: center;
 }
 
-/* Стили для десктопов */
-@media (max-width: 1920px) {
-  .header__bg-img {
-    height: 0px;
-    img {
-      max-width: 100%;
-      height: 800px;
-    }
-    a {
-      img {
-        width: 20px;
-        height: 20px;
-      }
-    }
-  }
-  .profile {
-    background: #ffa501;
-    height: 800px;
-    width: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: #ffffff;
-    justify-content: space-around;
-    visibility: hidden;
-  }
-
-  .hamburger {
-    width: 36px;
-    height: 21px;
-    margin: 20px 30px 0 0;
-  }
-  .hamburger__button {
-    width: 15%;
-    width: 15%;
-    display: flex;
-    flex-direction: row-reverse;
-  }
-  .profile__icon {
-    display: flex;
-    flex-direction: row-reverse;
-    margin: 0 30px 0 0;
-    justify-content: space-between;
+.header__img-bg {
+  height: 0px;
+  img {
     width: 100%;
+    height: 800px;
+    object-fit: cover;
   }
+  a {
+    img {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
 
-  .profile__title::before {
-    content: url("file:///C:/Users/magis/OneDrive/Desktop/%D0%BE%D1%81%D1%82%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B5/test/icons/Ellipse.png");
-    width: 15px;
-    height: 15px;
-    margin: 10px;
+.hamburger {
+  width: 36px;
+  height: 21px;
+  margin: 20px 30px 0 0;
+}
+.hamburger__button {
+  width: 15%;
+  display: flex;
+  flex-direction: row-reverse;
+}
+.profile__social-wrapper {
+  width: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  img{
+    width: 20px;
+    height: 20px;
   }
+}
+.profile__icon {
+  @include flex-container;
+  flex-direction: row-reverse;
+  margin: 10px 30px 0 0;
+  width: 100%;
+}
+
+.profile__title::before {
+  content: url("file:///C:/Users/magis/OneDrive/Desktop/%D0%BE%D1%81%D1%82%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B5/test/icons/Ellipse.png");
+  width: 15px;
+  height: 15px;
+  margin: 10px;
+}
+.header__social {
+  @include flex-container;
+  align-items: center;
+  writing-mode: sideways-lr;
+  min-height: 338px;
+  margin-top: 225px;
+  visibility: visible;
+  width: 15%;
+}
+.profile {
+  @include flex-container;
+  background: $primary-color;
+  height: 800px;
+  flex-direction: column;
+  align-items: center;
+  color: $text-color;
+  visibility: hidden;
+  width: 0;
+}
+.aside__show {
+  visibility: visible;
+  width: 15%;
+}
+.aside__hide {
+  visibility: hidden;
+  width: 0;
+}
+.filter {
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.75),
+    rgba(255, 255, 255, 0)
+  );
 }
 .header {
-  display: flex;
+  @include flex-container;
   align-items: center;
-  width: 1920px;
+  width: 100%;
   height: 800px;
 }
 .header__profession {
   max-width: 532px;
 }
 
-.header__social {
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-  writing-mode: sideways-lr;
-  min-height: 338px;
-  justify-content: space-around;
-  margin-top: 225px;
-  width: 15%;
-}
 .header__link {
   font-size: 14px;
 }
-.header__link-color{
+.header__link-color {
   @include button;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s 
 }
 
 .header__link-transparent:hover {
@@ -159,6 +201,7 @@ body {
 .header__name-wrapper::before {
   @include circle-style;
 }
+
 .experience__subtitle {
   position: relative;
   padding-bottom: 30px;
@@ -171,7 +214,7 @@ body {
   left: 0;
   width: 60px;
   height: 3px;
-  background-color: #ffa501;
+  background-color: $primary-color;
   transform: translateX(225%);
 }
 
@@ -198,12 +241,15 @@ body {
 }
 
 .experience__sections {
-  display: flex;
+  flex-wrap: wrap;
+  @include flex-container;
+  justify-content: center;
 }
 .experience__section-item {
   position: relative;
   height: 400px;
   max-width: 425px;
+  margin: 0 40px 0 40px;
 }
 .experience__section-item::before {
   content: "";
@@ -211,17 +257,17 @@ body {
   top: 0;
   bottom: 0;
   left: 0;
-  border-left: 1px solid #000000;
+  border-left: 1px solid $border-color;
   max-height: 343px;
 }
 .experience__sections .experience__section-item::after {
   content: "";
   position: absolute;
-  left: -4.5px;
+  left: -7px;
   top: 0;
   width: 15px;
   height: 15px;
-  background: #ffa501;
+  background: $primary-color;
   border-radius: 50%;
 }
 .experience__item {
@@ -235,7 +281,7 @@ body {
   top: 0;
   bottom: 0;
   left: 0;
-  border-top: 1px solid #000000;
+  border-top: 1px solid $border-color;
   width: 42px;
 }
 
@@ -285,6 +331,9 @@ body {
 
 .contact__container {
   display: flex;
+
+  justify-content: center;
+  min-height: 700px;
 }
 .contact__image {
   width: 400px;
@@ -299,8 +348,7 @@ body {
 }
 .contact__heading-wrapper {
   position: relative;
-  display: flex;
-  flex-direction: row;
+  @include flex-container;
   align-items: center;
 }
 .contact__heading {
@@ -330,7 +378,7 @@ body {
   box-sizing: border-box;
   background: transparent;
   height: 45px;
-  border: 1px solid #000000;
+  border: 1px solid $border-color;
 }
 
 .contact__form-input:focus {
@@ -354,8 +402,10 @@ body {
   font-size: 12px;
   color: #0284c7;
 }
-.contact__form-submit{
+.contact__form-submit {
   @include button;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s 
 }
 
 .error {
@@ -370,20 +420,40 @@ body {
   height: 200px;
 }
 
-/* Стили для планшетов */
-@media (max-width: 1200px) {
-  .header {
-  }
-}
-
 /* Стили для мобильных устройств */
-@media (max-width: 768px) {
-  .header {
+@media (max-width: 1019px) {
+  .header__social {
+    display: none;
   }
-}
+  .main {
+    border: 0px solid #000;
+    width: 100%;
+  }
+  .hamburger__button {
+    width: 0;
+  }
 
-/* Стили для очень маленьких экранов */
-@media (max-width: 320px) {
-  .header {
+  .contact__image {
+    border: 0;
+    display: none;
+  }
+  .contact {
+    transform: translate(5%, 0%);
+  }
+  .profile.aside__show {
+    position: absolute;
+    width: 80%;
+    left: 0;
+    z-index: 1;
+  }
+  .experience__subtitle {
+    transform: translate(25%, 0);
+  }
+  .experience__subtitle::after {
+    transform: translate(75%, 0);
+  }
+  .experience__section-item::before {
+    
+    max-height: 385px;
   }
 }

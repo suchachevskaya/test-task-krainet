@@ -43,29 +43,32 @@ document.addEventListener("DOMContentLoaded", function () {
           .then((response) => response.json())
           .then((data) => {
             console.log("Success:", data);
-            alert("Какая же ты молодец");
+            alert("Сообщение отправлено");
           })
 
           .catch((error) => {
             console.error("Error", error);
-            alert("Фууу");
+            alert("Сообщение не отправлено");
           });
       }
     });
 });
 // События по клику
 function asideVisibility() {
-  let profile = document.querySelector(".profile");
-  let headerSocial = document.querySelector(".header__social");
+  const headerSocial = document.querySelector('.header__social');
+  const profile = document.querySelector('.profile');
+  const wrapper = document.querySelector('.wrapper');
 
-  if (profile.style.visibility === "hidden") {
-    profile.style.visibility = "visible";
-    profile.style.width = "15%"; 
-    headerSocial.style.visibility = "hidden";
-    headerSocial.style.width = "0";
+  const isHeaderVisible = headerSocial.classList.contains('aside__show');
+
+  headerSocial.classList.toggle('aside__show', !isHeaderVisible);
+  headerSocial.classList.toggle('aside__hide', isHeaderVisible);
+  profile.classList.toggle('aside__show', isHeaderVisible);
+  profile.classList.toggle('aside__hide', !isHeaderVisible);
+
+  if (isHeaderVisible) {
+    wrapper.classList.add('filter');
   } else {
-    profile.style.visibility = "hidden";
-    profile.style.width = "0";
-    headerSocial.style.visibility = "visible";
-    headerSocial.style.width = "15%";
-  }}
+    wrapper.classList.remove('filter');
+  }
+}
