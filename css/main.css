@@ -16,6 +16,7 @@ body {
   align-items: center;
   background-color: #ffffff;
   overflow-x: hidden;
+  width: 100vw;
 }
 body h1 {
   font-size: 48px;
@@ -47,6 +48,10 @@ body a {
   color: #000;
   text-decoration: none;
   cursor: pointer;
+}
+
+html {
+  overflow-x: hidden;
 }
 
 .wrapper {
@@ -105,7 +110,7 @@ body a {
 }
 
 .profile__title::before {
-  content: url("file:///C:/Users/magis/OneDrive/Desktop/%D0%BE%D1%81%D1%82%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B5/test/icons/Ellipse.png");
+  content: url("../icons/Ellipse.png");
   width: 15px;
   height: 15px;
   margin: 10px;
@@ -307,7 +312,7 @@ body a {
   height: 36px;
   background: #ffa501;
   border-radius: 50%;
-  content: url("file:///C:/Users/magis/OneDrive/Desktop/%D0%BE%D1%81%D1%82%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B5/test/icons/University.png");
+  content: url("../icons/University.png");
   left: 30px;
   top: -15px;
   display: flex;
@@ -322,7 +327,7 @@ body a {
   height: 36px;
   background: #ffa501;
   border-radius: 50%;
-  content: url("file:///C:/Users/magis/OneDrive/Desktop/%D0%BE%D1%81%D1%82%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B5/test/icons/Courses.png");
+  content: url("../icons/Courses.png");
   left: 30px;
   top: -15px;
   display: flex;
@@ -337,7 +342,7 @@ body a {
   height: 36px;
   background: #ffa501;
   border-radius: 50%;
-  content: url("file:///C:/Users/magis/OneDrive/Desktop/%D0%BE%D1%81%D1%82%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B5/test/icons/Developer.png");
+  content: url("../icons/Developer.png");
   left: 30px;
   top: -15px;
   display: flex;
@@ -352,7 +357,7 @@ body a {
   height: 36px;
   background: #ffa501;
   border-radius: 50%;
-  content: url("file:///C:/Users/magis/OneDrive/Desktop/%D0%BE%D1%81%D1%82%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B5/test/icons/designer.png");
+  content: url("../icons/designer.png");
   left: 30px;
   top: -15px;
   display: flex;
